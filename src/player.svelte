@@ -1,14 +1,12 @@
 <script>
+  import ScoreButton from "./scoreButton.svelte";
+
   const playerData = {
     name: "",
     cp: 0,
     faction: "",
     primary: [0, 0, 0, 0],
-    secondaries: [
-      { name: "", score: 0 },
-      { name: "", score: 0 },
-      { name: "", score: 0 }
-    ]
+    secondaries: [0, 0, 0]
   };
 
   export let playerID;
@@ -118,6 +116,13 @@
   <p>Total Primary Points</p>
   <p>{primariesScore}</p>
   <p>Secondary 1</p>
+  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+    <ScoreButton
+      index={1}
+      currentValue={playerData.secondaries[0]}
+      thisValue={idx}
+      scoreCallback={() => {}} />
+  {/each}
   <p>Secondary 2</p>
   <p>Secondary 3</p>
   <p>Total Secondary Points</p>
