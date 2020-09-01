@@ -4,13 +4,17 @@
 </script>
 
 <style>
+  .scoreButtons {
+    width: 50px;
+    height: 50px;
+  }
   .selected {
     background-color: blueviolet;
   }
 </style>
 
 <button
-  class={currentValue === thisValue ? 'selected' : 'unselected'}
+  class={currentValue === thisValue ? 'selected scoreButtons' : 'unselected scoreButtons'}
   on:click={() => scoreCallback(index, thisValue)}>
   {thisValue}
 </button>

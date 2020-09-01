@@ -65,64 +65,79 @@
     <input id="faction" type="string" />
   </div>
   <p>Primary turn 2</p>
-  {#each [5, 10, 15] as score}
-    <ScoreButton
-      index={0}
-      currentValue={playerData.primary[0]}
-      thisValue={score}
-      scoreCallback={() => scorePrimaries(0, score)} />
-  {/each}
+  <div class="button-group">
+    {#each [5, 10, 15] as score}
+      <ScoreButton
+        index={0}
+        currentValue={playerData.primary[0]}
+        thisValue={score}
+        scoreCallback={() => scorePrimaries(0, score)} />
+    {/each}
+  </div>
   <p>Primary turn 3</p>
-  {#each [5, 10, 15] as score}
-    <ScoreButton
-      index={1}
-      currentValue={playerData.primary[1]}
-      thisValue={score}
-      scoreCallback={() => scorePrimaries(1, score)} />
-  {/each}
+  <div class="button-group">
+    {#each [5, 10, 15] as score}
+      <ScoreButton
+        index={1}
+        currentValue={playerData.primary[1]}
+        thisValue={score}
+        scoreCallback={() => scorePrimaries(1, score)} />
+    {/each}
+  </div>
   <p>Primary turn 4</p>
-  {#each [5, 10, 15] as score}
-    <ScoreButton
-      index={2}
-      currentValue={playerData.primary[2]}
-      thisValue={score}
-      scoreCallback={() => scorePrimaries(2, score)} />
-  {/each}
+  <div class="button-group">
+    {#each [5, 10, 15] as score}
+      <ScoreButton
+        index={2}
+        currentValue={playerData.primary[2]}
+        thisValue={score}
+        scoreCallback={() => scorePrimaries(2, score)} />
+    {/each}
+  </div>
   <p>Primary turn 5</p>
-  {#each [5, 10, 15] as score}
-    <ScoreButton
-      index={3}
-      currentValue={playerData.primary[3]}
-      thisValue={score}
-      scoreCallback={() => scorePrimaries(3, score)} />
-  {/each}
+  <div class="button-group">
+    {#each [5, 10, 15] as score}
+      <ScoreButton
+        index={3}
+        currentValue={playerData.primary[3]}
+        thisValue={score}
+        scoreCallback={() => scorePrimaries(3, score)} />
+    {/each}
+  </div>
   <p>Total Primary Points</p>
   <p>{primariesScore}</p>
   <p>Secondary 1</p>
-  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-    <ScoreButton
-      index={0}
-      currentValue={playerData.secondaries[0]}
-      thisValue={idx}
-      scoreCallback={() => scoreSecondaries(0, idx)} />
-  {/each}
+  <div class="button-group">
+    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+      <ScoreButton
+        index={0}
+        currentValue={playerData.secondaries[0]}
+        thisValue={idx}
+        scoreCallback={() => scoreSecondaries(0, idx)} />
+    {/each}
+  </div>
   <p>Secondary 2</p>
-  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-    <ScoreButton
-      index={1}
-      currentValue={playerData.secondaries[1]}
-      thisValue={idx}
-      scoreCallback={() => scoreSecondaries(1, idx)} />
-  {/each}
+  <div class="button-group">
+    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+      <ScoreButton
+        index={1}
+        currentValue={playerData.secondaries[1]}
+        thisValue={idx}
+        scoreCallback={() => scoreSecondaries(1, idx)} />
+    {/each}
+  </div>
   <p>Secondary 3</p>
-  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-    <ScoreButton
-      index={2}
-      currentValue={playerData.secondaries[2]}
-      thisValue={idx}
-      scoreCallback={() => scoreSecondaries(2, idx)} />
-  {/each}
+  <div class="button-group">
+    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+      <ScoreButton
+        index={2}
+        currentValue={playerData.secondaries[2]}
+        thisValue={idx}
+        scoreCallback={() => scoreSecondaries(2, idx)} />
+    {/each}
+  </div>
   <p>Total Secondary Points</p>
   <p>{secondariesScore}</p>
   <p>Total Points</p>
+  <p>{primariesScore + secondariesScore}</p>
 </div>
