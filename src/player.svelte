@@ -17,7 +17,22 @@
     );
   }
 
+  function scoreSecondaries(objective, newScore) {
+    playerData.secondaries = playerData.secondaries.map((currentScore, idx) =>
+      objective === idx
+        ? newScore === currentScore
+          ? 0
+          : newScore
+        : currentScore
+    );
+  }
+
   $: primariesScore = playerData.primary.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
+
+  $: secondariesScore = playerData.secondaries.reduce((total, score) => {
     let newScore = total + score;
     return newScore >= 45 ? 45 : newScore;
   });
@@ -50,81 +65,64 @@
     <input id="faction" type="string" />
   </div>
   <p>Primary turn 2</p>
-  <button
-    class={playerData.primary[0] === 5 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(0, 5)}>
-    5
-  </button>
-  <button
-    class={playerData.primary[0] === 10 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(0, 10)}>
-    10
-  </button>
-  <button
-    class={playerData.primary[0] === 15 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(0, 15)}>
-    15
-  </button>
+  {#each [5, 10, 15] as score}
+    <ScoreButton
+      index={0}
+      currentValue={playerData.primary[0]}
+      thisValue={score}
+      scoreCallback={() => scorePrimaries(0, score)} />
+  {/each}
   <p>Primary turn 3</p>
-  <button
-    class={playerData.primary[1] === 5 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(1, 5)}>
-    5
-  </button>
-  <button
-    class={playerData.primary[1] === 10 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(1, 10)}>
-    10
-  </button>
-  <button
-    class={playerData.primary[1] === 15 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(1, 15)}>
-    15
-  </button>
+  {#each [5, 10, 15] as score}
+    <ScoreButton
+      index={1}
+      currentValue={playerData.primary[1]}
+      thisValue={score}
+      scoreCallback={() => scorePrimaries(1, score)} />
+  {/each}
   <p>Primary turn 4</p>
-  <button
-    class={playerData.primary[2] === 5 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(2, 5)}>
-    5
-  </button>
-  <button
-    class={playerData.primary[2] === 10 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(2, 10)}>
-    10
-  </button>
-  <button
-    class={playerData.primary[2] === 15 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(2, 15)}>
-    15
-  </button>
+  {#each [5, 10, 15] as score}
+    <ScoreButton
+      index={2}
+      currentValue={playerData.primary[2]}
+      thisValue={score}
+      scoreCallback={() => scorePrimaries(2, score)} />
+  {/each}
   <p>Primary turn 5</p>
-  <button
-    class={playerData.primary[3] === 5 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(3, 5)}>
-    5
-  </button>
-  <button
-    class={playerData.primary[3] === 10 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(3, 10)}>
-    10
-  </button>
-  <button
-    class={playerData.primary[3] === 15 ? 'selected' : 'unselected'}
-    on:click={() => scorePrimaries(3, 15)}>
-    15
-  </button>
+  {#each [5, 10, 15] as score}
+    <ScoreButton
+      index={3}
+      currentValue={playerData.primary[3]}
+      thisValue={score}
+      scoreCallback={() => scorePrimaries(3, score)} />
+  {/each}
   <p>Total Primary Points</p>
   <p>{primariesScore}</p>
   <p>Secondary 1</p>
   {#each Array.from(Array(15), (_, i) => i + 1) as idx}
     <ScoreButton
-      index={1}
+      index={0}
       currentValue={playerData.secondaries[0]}
       thisValue={idx}
-      scoreCallback={() => {}} />
+      scoreCallback={() => scoreSecondaries(0, idx)} />
   {/each}
   <p>Secondary 2</p>
+  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+    <ScoreButton
+      index={1}
+      currentValue={playerData.secondaries[1]}
+      thisValue={idx}
+      scoreCallback={() => scoreSecondaries(1, idx)} />
+  {/each}
   <p>Secondary 3</p>
+  {#each Array.from(Array(15), (_, i) => i + 1) as idx}
+    <ScoreButton
+      index={2}
+      currentValue={playerData.secondaries[2]}
+      thisValue={idx}
+      scoreCallback={() => scoreSecondaries(2, idx)} />
+  {/each}
   <p>Total Secondary Points</p>
+  <p>{secondariesScore}</p>
   <p>Total Points</p>
 </div>
