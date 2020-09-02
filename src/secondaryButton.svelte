@@ -6,8 +6,10 @@
 <style>
   .scoreButtons {
     width: 20%;
-    height: 20px;
-    border: 1px gray solid;
+    height: 2rem;
+    border: none;
+    /* border-left: 1px black solid; */
+    font-size: 0.75rem;
   }
   .lessThanSellected {
     background-color: blueviolet;

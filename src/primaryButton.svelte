@@ -7,7 +7,8 @@
   .scoreButtons {
     width: 4rem;
     height: 100%;
-    border: 1px gray solid;
+    border: none;
+    border-left: 1px black solid;
     font-size: 1rem;
   }
   .selected {

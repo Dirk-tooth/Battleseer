@@ -25,6 +25,12 @@
   .button-group {
     width: 45%;
   }
+  .total-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px black solid;
+  }
 </style>
 
 <div class="score-container">
@@ -43,6 +49,8 @@
     </div>
   {/each}
 
-  <p>Total Primary Points</p>
-  <p>{totalScore}</p>
+  <div class="total-container">
+    <h3>Total Secondary Points</h3>
+    <h1>{totalScore} / 45</h1>
+  </div>
 </div>
