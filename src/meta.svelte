@@ -4,7 +4,7 @@
 
 <style>
   .meta {
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
     width: 100%;
   }
 </style>

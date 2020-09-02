@@ -1,7 +1,7 @@
 <script>
-  import ScoreButton from "./scoreButton.svelte";
   import Meta from "./meta.svelte";
-  import Scores from "./scores.svelte";
+  import Primaries from "./primaries.svelte";
+  import Secondaries from "./secondaries.svelte";
 
   const playerData = {
     name: "",
@@ -10,8 +10,6 @@
     primary: [0, 0, 0, 0],
     secondaries: [0, 0, 0]
   };
-
-  export let playerID;
 
   function scorePrimaries(turn, newScore) {
     playerData.primary = playerData.primary.map((currentScore, idx) =>
@@ -48,7 +46,7 @@
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
-    background-color: red;
+    /* background-color: red; */
     margin: 3rem;
   }
 </style>
@@ -59,16 +57,14 @@
     cp={playerData.cp}
     faction={playerData.faction} />
 
-  <Scores
-    type={'primary'}
+  <Primaries
     scoreHeaders={['Primary Turn 2', 'Primary Turn 3', 'Primary Turn 4', 'Primary Turn 5']}
     seedArray={[5, 10, 15]}
     primaryScoreArray={playerData.primary}
     scoreCallback={(turn, newScore) => scorePrimaries(turn, newScore)}
     totalScore={primariesScore} />
 
-  <Scores
-    type={'secondary'}
+  <Secondaries
     scoreHeaders={['Secondary 1', 'Secondary 2', 'Secondary 3']}
     seedArray={Array.from(Array(15), (_, i) => i + 1)}
     primaryScoreArray={playerData.secondaries}

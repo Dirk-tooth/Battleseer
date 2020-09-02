@@ -1,7 +1,6 @@
 <script>
-  import ScoreButton from "./scoreButton.svelte";
-  export let type,
-    scoreHeaders,
+  import SecondaryButton from "./secondaryButton.svelte";
+  export let scoreHeaders,
     seedArray,
     primaryScoreArray,
     scoreCallback,
@@ -10,14 +9,18 @@
 
 <style>
   .score-container {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     width: 100%;
   }
   .score-block {
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    /* background-color: blue; */
     border: 1px black solid;
+    margin: 1rem;
+  }
+  .score-header {
+    padding: 0.25rem;
   }
   .button-group {
     width: 45%;
@@ -27,11 +30,10 @@
 <div class="score-container">
   {#each scoreHeaders as scoreHeader, idx}
     <div class="score-block">
-      <p>{scoreHeader}</p>
+      <p class={'score-header'}>{scoreHeader}</p>
       <div class="button-group">
         {#each seedArray as score}
-          <ScoreButton
-            {type}
+          <SecondaryButton
             index={idx}
             currentValue={primaryScoreArray[idx]}
             thisValue={score}
