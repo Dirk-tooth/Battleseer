@@ -49,6 +49,14 @@
     /* background-color: red; */
     margin: 3rem;
   }
+  .total-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border: 1px black solid;
+    margin: 1rem;
+  }
 </style>
 
 <div class="player">
@@ -71,6 +79,8 @@
     scoreCallback={(turn, newScore) => scoreSecondaries(turn, newScore)}
     totalScore={secondariesScore} />
 
-  <p>Total Points</p>
-  <p>{primariesScore + secondariesScore}</p>
+  <div class="total-container">
+    <h1>Total Points</h1>
+    <h1>{primariesScore + secondariesScore} / 90</h1>
+  </div>
 </div>
