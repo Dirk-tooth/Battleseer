@@ -1,5 +1,7 @@
 <script>
   import ScoreButton from "./scoreButton.svelte";
+  import Meta from "./meta.svelte";
+  import Scores from "./scores.svelte";
 
   const playerData = {
     name: "",
@@ -45,99 +47,34 @@
     height: 100%;
     justify-content: space-between;
     align-content: space-between;
-  }
-  .selected {
-    background-color: blueviolet;
+    align-items: center;
+    background-color: red;
+    margin: 3rem;
   }
 </style>
 
 <div class="player">
-  <div>
-    <label for="player-name">Player name</label>
-    <input id="player-name" type="string" value={playerData.name} />
-  </div>
-  <div>
-    <label for="CP">CP</label>
-    <input id="CP" type="number" min="0" />
-  </div>
-  <div>
-    <label for="faction">Faction</label>
-    <input id="faction" type="string" />
-  </div>
-  <p>Primary turn 2</p>
-  <div class="button-group">
-    {#each [5, 10, 15] as score}
-      <ScoreButton
-        index={0}
-        currentValue={playerData.primary[0]}
-        thisValue={score}
-        scoreCallback={() => scorePrimaries(0, score)} />
-    {/each}
-  </div>
-  <p>Primary turn 3</p>
-  <div class="button-group">
-    {#each [5, 10, 15] as score}
-      <ScoreButton
-        index={1}
-        currentValue={playerData.primary[1]}
-        thisValue={score}
-        scoreCallback={() => scorePrimaries(1, score)} />
-    {/each}
-  </div>
-  <p>Primary turn 4</p>
-  <div class="button-group">
-    {#each [5, 10, 15] as score}
-      <ScoreButton
-        index={2}
-        currentValue={playerData.primary[2]}
-        thisValue={score}
-        scoreCallback={() => scorePrimaries(2, score)} />
-    {/each}
-  </div>
-  <p>Primary turn 5</p>
-  <div class="button-group">
-    {#each [5, 10, 15] as score}
-      <ScoreButton
-        index={3}
-        currentValue={playerData.primary[3]}
-        thisValue={score}
-        scoreCallback={() => scorePrimaries(3, score)} />
-    {/each}
-  </div>
-  <p>Total Primary Points</p>
-  <p>{primariesScore}</p>
-  <p>Secondary 1</p>
-  <div class="button-group">
-    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-      <ScoreButton
-        index={0}
-        currentValue={playerData.secondaries[0]}
-        thisValue={idx}
-        scoreCallback={() => scoreSecondaries(0, idx)} />
-    {/each}
-  </div>
-  <p>Secondary 2</p>
-  <div class="button-group">
-    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-      <ScoreButton
-        index={1}
-        currentValue={playerData.secondaries[1]}
-        thisValue={idx}
-        scoreCallback={() => scoreSecondaries(1, idx)} />
-    {/each}
-  </div>
-  <p>Secondary 3</p>
-  <div class="button-group">
-    {#each Array.from(Array(15), (_, i) => i + 1) as idx}
-      <ScoreButton
-        index={2}
-        currentValue={playerData.secondaries[2]}
-        thisValue={idx}
-        scoreCallback={() => scoreSecondaries(2, idx)} />
-    {/each}
-  </div>
-  <p>Total Secondary Points</p>
-  <p>{secondariesScore}</p>
+  <Meta
+    name={playerData.name}
+    cp={playerData.cp}
+    faction={playerData.faction} />
+
+  <Scores
+    type={'primary'}
+    scoreHeaders={['Primary Turn 2', 'Primary Turn 3', 'Primary Turn 4', 'Primary Turn 5']}
+    seedArray={[5, 10, 15]}
+    primaryScoreArray={playerData.primary}
+    scoreCallback={(turn, newScore) => scorePrimaries(turn, newScore)}
+    totalScore={primariesScore} />
+
+  <Scores
+    type={'secondary'}
+    scoreHeaders={['Secondary 1', 'Secondary 2', 'Secondary 3']}
+    seedArray={Array.from(Array(15), (_, i) => i + 1)}
+    primaryScoreArray={playerData.secondaries}
+    scoreCallback={(turn, newScore) => scoreSecondaries(turn, newScore)}
+    totalScore={secondariesScore} />
+
   <p>Total Points</p>
   <p>{primariesScore + secondariesScore}</p>
 </div>

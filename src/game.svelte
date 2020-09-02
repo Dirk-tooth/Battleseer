@@ -8,7 +8,9 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
   }
 </style>
 
