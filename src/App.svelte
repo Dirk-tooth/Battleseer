@@ -34,6 +34,11 @@
       justify-content: center;
       height: auto;
     }
+    h1,
+    h5 {
+      margin: 1rem;
+      text-align: center;
+    }
   }
 </style>
 

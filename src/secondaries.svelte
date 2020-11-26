@@ -1,5 +1,5 @@
 <script>
-  import SecondaryButton from "./secondaryButton.svelte";
+  import SecondaryButton from "./elements/secondaryButton.svelte";
   import TextInput from "./elements/textInput.svelte";
 
   export let scoreHeaders,
@@ -21,13 +21,6 @@
     border: 1px black solid;
     margin: 1rem;
   }
-  .score-header {
-    padding: 0.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
   .button-group {
     width: 45%;
   }
@@ -36,6 +29,15 @@
     justify-content: space-around;
     align-items: center;
     border: 1px black solid;
+  }
+  @media only screen and (max-width: 795px) {
+    .score-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .button-group {
+      width: 100%;
+    }
   }
 </style>
 

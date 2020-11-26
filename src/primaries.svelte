@@ -1,5 +1,5 @@
 <script>
-  import PriamryButton from "./primaryButton.svelte";
+  import PriamryButton from "./elements/primaryButton.svelte";
   export let scoreHeaders,
     seedArray,
     primaryScoreArray,
@@ -15,7 +15,6 @@
   .score-block {
     display: flex;
     justify-content: space-between;
-    /* background-color: blue; */
     border: 1px black solid;
     margin: 1rem;
   }
@@ -31,6 +30,21 @@
     justify-content: space-around;
     align-items: center;
     border: 1px black solid;
+  }
+  @media only screen and (max-width: 795px) {
+    .score-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .score-header {
+      border-bottom: none;
+    }
+    .button-group {
+      width: 100%;
+      height: 5rem;
+      display: flex;
+      border-top: 1px black solid;
+    }
   }
 </style>
 

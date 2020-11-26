@@ -14,6 +14,12 @@
   .selected {
     background-color: blueviolet;
   }
+  @media only screen and (max-width: 795px) {
+    .scoreButtons {
+      width: auto;
+      flex-grow: 1;
+    }
+  }
 </style>
 
 <button
