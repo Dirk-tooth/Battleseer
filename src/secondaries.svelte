@@ -1,5 +1,7 @@
 <script>
   import SecondaryButton from "./secondaryButton.svelte";
+  import TextInput from "./elements/textInput.svelte";
+
   export let scoreHeaders,
     seedArray,
     primaryScoreArray,
@@ -21,6 +23,10 @@
   }
   .score-header {
     padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
   .button-group {
     width: 45%;
@@ -36,7 +42,7 @@
 <div class="score-container">
   {#each scoreHeaders as scoreHeader, idx}
     <div class="score-block">
-      <p class={'score-header'}>{scoreHeader}</p>
+      <TextInput label={scoreHeader} type="string" value={''} />
       <div class="button-group">
         {#each seedArray as score}
           <SecondaryButton

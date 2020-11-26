@@ -12,6 +12,7 @@
   h1,
   h5 {
     margin: 12px;
+    text-align: right;
   }
   .App {
     text-align: center;
@@ -25,6 +26,14 @@
     align-items: flex-end;
     justify-content: space-between;
     font-size: calc(10px + 2vmin);
+  }
+  @media only screen and (max-width: 795px) {
+    .App-header {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+    }
   }
 </style>
 

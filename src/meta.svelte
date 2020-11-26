@@ -1,46 +1,56 @@
 <script>
   export let name, cp, faction;
+
+  import TextInput from "./elements/textInput.svelte";
 </script>
 
 <style>
+  /* input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  } */
+
   .meta {
-    /* background-color: chartreuse; */
     width: 100%;
   }
-  .name {
-    width: 100%;
-    padding: 0 1rem;
-  }
-  .name input {
-    width: auto;
+  .meta :global(.name) {
   }
   .second-row {
     display: flex;
   }
-  .cp {
-    width: 25%;
+  .meta :global(.cp) {
+    flex-basis: 25%;
   }
-  .cp input {
-    width: 20%;
-  }
-  .faction {
-    width: 80%;
+  .meta :global(.faction) {
+    flex-basis: 75%;
   }
 </style>
 
 <div class="meta">
-  <div class="name">
-    <label for="player-name">Player name</label>
-    <input id="player-name" type="string" value={name} />
-  </div>
+  <TextInput
+    label="Player name"
+    type="string"
+    value={name}
+    border
+    passedClasses="name" />
   <div class="second-row">
-    <div class="cp">
-      <label for="CP">CP</label>
-      <input id="CP" type="number" min="0" value={cp} />
-    </div>
-    <div class="faction">
-      <label for="faction">Faction</label>
-      <input id="faction" type="string" value={faction} />
-    </div>
+    <TextInput
+      label="CP"
+      type="number"
+      min={0}
+      value={cp}
+      border
+      passedClasses="cp" />
+    <TextInput
+      label="Faction"
+      type="string"
+      value={faction}
+      border
+      passedClasses="faction" />
   </div>
 </div>

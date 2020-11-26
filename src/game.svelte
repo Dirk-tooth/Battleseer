@@ -12,6 +12,11 @@
     align-content: space-around;
     align-items: center;
   }
+  @media only screen and (max-width: 795px) {
+    .game {
+      flex-direction: column;
+    }
+  }
 </style>
 
 <div class="game">
