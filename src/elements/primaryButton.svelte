@@ -5,19 +5,24 @@
 
 <style>
   .scoreButtons {
-    width: 4rem;
+    /* width: auto; */
     height: 100%;
     border: none;
-    border-left: 1px black solid;
+    border-left: 1px #334 solid;
     font-size: 1rem;
+    flex-grow: 1;
+    color: #334;
   }
   .selected {
     background-color: blueviolet;
+    color: #eee;
   }
   @media only screen and (max-width: 795px) {
     .scoreButtons {
       width: auto;
       flex-grow: 1;
+      border: none;
+      font-size: 2rem;
     }
   }
 </style>

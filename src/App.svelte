@@ -8,6 +8,7 @@
   :global(body) {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #fcfcfc;
   }
   h1,
   h5 {
@@ -18,8 +19,9 @@
     text-align: center;
   }
   .App-header {
-    background-color: #f9f6f6;
-    color: #333;
+    background-color: blueviolet;
+    box-shadow: 0px 5px 5px #dddddd;
+    color: #eeeeee;
     height: 72px;
     display: flex;
     flex-direction: row;
@@ -36,7 +38,7 @@
     }
     h1,
     h5 {
-      margin: 1rem;
+      margin: 1rem 2rem 0.5rem 2rem;
       text-align: center;
     }
   }
@@ -44,6 +46,7 @@
 
 <div class="App">
   <header class="App-header">
+    <!-- <h1>バトルフォーカス</h1> -->
     <h1>Battleseer</h1>
     <h5>A Warhammer 40,000 9th Ed. GT mission scoring tool</h5>
   </header>

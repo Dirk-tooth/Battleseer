@@ -57,6 +57,11 @@
     border: 1px black solid;
     margin: 1rem;
   }
+  @media only screen and (max-width: 795px) {
+    .player {
+      margin: 1rem;
+    }
+  }
 </style>
 
 <div class="player">
@@ -66,7 +71,7 @@
     faction={playerData.faction} />
 
   <Primaries
-    scoreHeaders={['Turn 2', 'Turn 3', 'Turn 4', 'Turn 5']}
+    scoreHeaders={['Primary Turn 2', 'Primary Turn 3', 'Primary Turn 4', 'Primary Turn 5']}
     seedArray={[5, 10, 15]}
     primaryScoreArray={playerData.primary}
     scoreCallback={(turn, newScore) => scorePrimaries(turn, newScore)}

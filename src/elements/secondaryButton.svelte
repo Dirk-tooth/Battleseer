@@ -8,15 +8,22 @@
     width: 20%;
     height: 2rem;
     border: none;
-    /* border-left: 1px black solid; */
     font-size: 0.75rem;
+    color: #334;
   }
   .lessThanSellected {
     background-color: blueviolet;
+    color: #eee;
     opacity: 75%;
   }
   .selected {
     background-color: blueviolet;
+    color: #eee;
+  }
+  @media only screen and (max-width: 795px) {
+    .scoreButtons {
+      font-size: 1.25rem;
+    }
   }
 </style>
 

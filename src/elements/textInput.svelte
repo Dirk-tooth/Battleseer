@@ -9,6 +9,7 @@
     align-items: flex-start;
     margin: 0.25rem;
     padding: 0.25rem;
+    color: #334;
   }
   .textInput input {
     border: none;
@@ -16,9 +17,10 @@
     outline: none;
     width: 95%;
     font-size: 2rem;
+    color: #334;
   }
   .border {
-    border: 1px black solid;
+    border: 1px #334 solid;
   }
 </style>
 

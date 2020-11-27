@@ -9,32 +9,36 @@
 
 <style>
   .score-container {
-    /* background-color: blueviolet; */
     width: 100%;
+    color: #334;
   }
   .score-block {
     display: flex;
     justify-content: space-between;
-    border: 1px black solid;
+    border: 1px #334 solid;
     margin: 1rem;
   }
   .score-header {
     padding: 0.25rem;
   }
   .button-group {
-    /* width: 45%; */
     margin: 0px;
+    display: flex;
+    width: 35%;
   }
   .total-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px black solid;
+    border: 1px #334 solid;
+    padding: 0.5rem;
+    color: #334;
   }
   @media only screen and (max-width: 795px) {
     .score-block {
       display: flex;
       flex-direction: column;
+      margin: 1rem 0.25rem;
     }
     .score-header {
       border-bottom: none;
@@ -43,7 +47,12 @@
       width: 100%;
       height: 5rem;
       display: flex;
-      border-top: 1px black solid;
+    }
+    .total-container {
+      margin: 1rem 0.25rem;
+    }
+    .total-container h3 {
+      flex-basis: 50%;
     }
   }
 </style>
