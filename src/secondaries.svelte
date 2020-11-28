@@ -1,6 +1,9 @@
 <script>
   import SecondaryButton from "./elements/secondaryButton.svelte";
-  import TextInput from "./elements/textInput.svelte";
+  // import TextInput from "./elements/textInput.svelte";
+  import SelectInput from "./elements/selectInput.svelte";
+
+  import { SecondariesList } from "./utilities/constantsList.js";
 
   export let scoreHeaders,
     seedArray,
@@ -51,7 +54,11 @@
 <div class="score-container">
   {#each scoreHeaders as scoreHeader, idx}
     <div class="score-block">
-      <TextInput label={scoreHeader} type="string" value={''} />
+      <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
+      <SelectInput
+        label={scoreHeader}
+        options={SecondariesList}
+        passedClasses="secondaries" />
       <div class="button-group">
         {#each seedArray as score}
           <SecondaryButton

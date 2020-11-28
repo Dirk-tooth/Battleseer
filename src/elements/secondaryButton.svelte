@@ -11,6 +11,9 @@
     font-size: 0.75rem;
     color: #334;
   }
+  .scoreButtons:focus {
+    outline: none;
+  }
   .lessThanSellected {
     background-color: blueviolet;
     color: #eee;

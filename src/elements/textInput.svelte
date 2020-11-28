@@ -1,5 +1,8 @@
 <script>
-  export let label, type, value, min, passedClasses, border;
+  export let label, type, value;
+  export let min = 0;
+  export let passedClasses = null;
+  export let border = false;
 </script>
 
 <style>
@@ -10,14 +13,16 @@
     margin: 0.25rem;
     padding: 0.25rem;
     color: #334;
+    /* background-color: red; */
   }
   .textInput input {
     border: none;
     box-shadow: none;
     outline: none;
-    width: 95%;
+    width: 90%;
     font-size: 2rem;
     color: #334;
+    /* background-color: blue; */
   }
   .border {
     border: 1px #334 solid;

@@ -2,6 +2,9 @@
   export let name, cp, faction;
 
   import TextInput from "./elements/textInput.svelte";
+  import SelectInput from "./elements/selectInput.svelte";
+
+  import { FactionList } from "./utilities/constantsList.js";
 </script>
 
 <style>
@@ -46,11 +49,10 @@
       value={cp}
       border
       passedClasses="cp" />
-    <TextInput
-      label="Faction"
-      type="string"
-      value={faction}
+    <SelectInput
       border
+      label="Faction"
+      options={FactionList}
       passedClasses="faction" />
   </div>
 </div>

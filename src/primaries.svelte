@@ -31,7 +31,7 @@
     justify-content: space-around;
     align-items: center;
     border: 1px #334 solid;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     color: #334;
   }
   @media only screen and (max-width: 795px) {

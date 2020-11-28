@@ -5,13 +5,15 @@
 
 <style>
   .scoreButtons {
-    /* width: auto; */
     height: 100%;
     border: none;
     border-left: 1px #334 solid;
     font-size: 1rem;
-    flex-grow: 1;
+    flex-basis: 33%;
     color: #334;
+  }
+  .scoreButtons:focus {
+    outline: none;
   }
   .selected {
     background-color: blueviolet;

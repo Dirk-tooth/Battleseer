@@ -1,4 +1,5 @@
 <script>
+  export let playerID = null;
   import Meta from "./meta.svelte";
   import Primaries from "./primaries.svelte";
   import Secondaries from "./secondaries.svelte";
@@ -60,6 +61,9 @@
   @media only screen and (max-width: 795px) {
     .player {
       margin: 1rem;
+    }
+    .total-container {
+      margin: 1rem 0.25rem;
     }
   }
 </style>
