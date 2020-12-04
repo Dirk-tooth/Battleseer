@@ -1,7 +1,7 @@
 <script>
   import SecondaryButton from "./elements/secondaryButton.svelte";
   // import TextInput from "./elements/textInput.svelte";
-  import SelectInput from "./elements/selectInput.svelte";
+  import SecondarySelect from "./elements/secondarySelect.svelte";
 
   import { SecondariesList } from "./utilities/constantsList.js";
 
@@ -9,6 +9,7 @@
     seedArray,
     primaryScoreArray,
     scoreCallback,
+    setSecondaryCatagories,
     totalScore;
 </script>
 
@@ -24,6 +25,7 @@
     margin: 1rem;
   }
   .button-group {
+    flex-basis: 45%;
   }
   .total-container {
     display: flex;
@@ -55,10 +57,12 @@
   {#each scoreHeaders as scoreHeader, idx}
     <div class="score-block">
       <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
-      <SelectInput
+      <SecondarySelect
         label={scoreHeader}
+        objNumber={idx}
         options={SecondariesList}
-        passedClasses="secondaries" />
+        passedClasses="secondaries"
+        onChange={newSelection => setSecondaryCatagories(idx, newSelection)} />
       <div class="button-group">
         {#each seedArray as score}
           <SecondaryButton

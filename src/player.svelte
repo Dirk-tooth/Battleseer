@@ -9,7 +9,8 @@
     cp: 0,
     faction: "",
     primary: [0, 0, 0, 0],
-    secondaries: [0, 0, 0]
+    secondaries: [0, 0, 0],
+    secondariesCatagories: ["", "", ""]
   };
 
   function scorePrimaries(turn, newScore) {
@@ -26,6 +27,11 @@
           : newScore
         : currentScore
     );
+  }
+
+  function setSecondaryCatagories(objectiveNumber, newSelection) {
+    playerData.secondariesCatagories[objectiveNumber] = newSelection;
+    console.log("playerData: ", playerData);
   }
 
   $: primariesScore = playerData.primary.reduce((total, score) => {
@@ -49,6 +55,7 @@
     align-items: center;
     /* background-color: red; */
     margin: 3rem;
+    flex-basis: 50%;
   }
   .total-container {
     display: flex;
@@ -61,6 +68,7 @@
   @media only screen and (max-width: 795px) {
     .player {
       margin: 1rem;
+      flex-basis: 100%;
     }
     .total-container {
       margin: 1rem 0.25rem;
@@ -70,6 +78,7 @@
 
 <div class="player">
   <Meta
+    {playerID}
     name={playerData.name}
     cp={playerData.cp}
     faction={playerData.faction} />
@@ -86,6 +95,7 @@
     seedArray={Array.from(Array(15), (_, i) => i + 1)}
     primaryScoreArray={playerData.secondaries}
     scoreCallback={(turn, newScore) => scoreSecondaries(turn, newScore)}
+    setSecondaryCatagories={(objectiveNumber, newSelection) => setSecondaryCatagories(objectiveNumber, newSelection)}
     totalScore={secondariesScore} />
 
   <div class="total-container">

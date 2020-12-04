@@ -1,5 +1,5 @@
 <script>
-  export let name, cp, faction;
+  export let playerID, name, cp, faction;
 
   import TextInput from "./elements/textInput.svelte";
   import SelectInput from "./elements/selectInput.svelte";
@@ -40,6 +40,7 @@
     type="string"
     value={name}
     border
+    placeholder={`Player ${playerID}`}
     passedClasses="name" />
   <div class="second-row">
     <TextInput

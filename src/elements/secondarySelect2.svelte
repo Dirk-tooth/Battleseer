@@ -57,10 +57,13 @@
   }
   .select option {
     font-weight: normal;
+    padding-left: 1rem;
+    font-size: 1rem;
+    /* background-color: aqua; */
+    width: 100%;
   }
-  .option-wrapper {
-    /* display: flex;
-    justify-content: space-between; */
+  .select optgroup {
+    font-weight: bold;
   }
 </style>
 
@@ -69,7 +72,11 @@
 
   <select name={label} id={`${label}-select`} class="select">
     {#each processedOptions as option, idx}
-      <option class="option-wrapper" value={option}>{option}</option>
+      {#if option.cat === 'optgroup'}
+        <optgroup class="optgroup" label={option.name} />
+      {:else}
+        <option class="option-wrapper" value={option}>{option}</option>
+      {/if}
     {/each}
   </select>
 </div>

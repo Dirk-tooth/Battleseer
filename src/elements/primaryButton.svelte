@@ -9,8 +9,9 @@
     border: none;
     border-left: 1px #334 solid;
     font-size: 1rem;
-    flex-basis: 33%;
+    flex-basis: calc(100% / 3);
     color: #334;
+    margin: none;
   }
   .scoreButtons:focus {
     outline: none;
@@ -21,8 +22,8 @@
   }
   @media only screen and (max-width: 795px) {
     .scoreButtons {
-      width: auto;
-      flex-grow: 1;
+      /* width: auto; */
+      /* flex-grow: 1; */
       border: none;
       font-size: 2rem;
     }
