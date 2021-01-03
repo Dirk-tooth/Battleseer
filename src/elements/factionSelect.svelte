@@ -113,7 +113,7 @@
       <option class="option-wrapper" value="Adeptus Astartes">
         Adeptus Astartes
       </option>
-      <option class="option-wrapper" value="Adeptus Custodies">
+      <option class="option-wrapper" value="Adeptus Custodes">
         Adeptus Custodies
       </option>
       <option class="option-wrapper" value="Adeptus Mechanicus">
