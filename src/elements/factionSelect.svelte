@@ -91,8 +91,8 @@
       <option class="option-wrapper" value="Gellerpox Infected">
         Gellerpox Infected
       </option>
-      <option class="option-wrapper" value="Heretic Astarties">
-        Heretic Astarties
+      <option class="option-wrapper" value="Heretic Astartes">
+        Heretic Astartes
       </option>
       <option class="option-wrapper" value="Servants of the Abyss">
         Servants of the Abyss
@@ -110,8 +110,8 @@
       <option class="option-wrapper" value="Adepta Sororitas">
         Adepta Sororitas
       </option>
-      <option class="option-wrapper" value="Adeptus Astarties">
-        Adeptus Astarties
+      <option class="option-wrapper" value="Adeptus Astartes">
+        Adeptus Astartes
       </option>
       <option class="option-wrapper" value="Adeptus Custodies">
         Adeptus Custodies
