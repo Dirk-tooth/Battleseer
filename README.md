@@ -1,8 +1,50 @@
-# New Project
+# Battleseer
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
-
-## Available Scripts
+### Factions
+```
+Aeldari
+  Asuryani
+  Drukhari
+  Harlequins
+  Ynnari
+  Aeldari
+Chaos
+  Chaos Knights
+  Daemons
+  Death Guard
+  Fallen
+  Gellerpox Infected
+  Heretic Astarties
+  Servants of the Abyss
+  Thousand Sons
+  Titanicus Traitoris
+  Chaos
+Imperium
+  Adepta Sororitas
+  Adeptus Astarties
+  Adeptus Custodies
+  Adeptus Mechanicus
+  Adeptus Titanicus
+  Astra Militarum
+  Elucidian Starstriders
+  Fallen
+  Grey Knights
+  Imperial Knights
+  Inquisition
+  Officio Assassinorum
+  Sisters of Silence
+  Imperium
+Necrons
+  Necrons
+Orks
+  Orks
+T'au Empire
+  T'au Empire
+Tyranids
+  Brood Brothers
+  Genestealer Cults
+  Tyranids
+```
 
 ### npm start
 
@@ -23,7 +65,3 @@ Builds a static copy of your site to the `build/` folder.
 Your app is ready to be deployed!
 
 **For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" or "@snowpack/plugin-parcel" to your `snowpack.config.json` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.

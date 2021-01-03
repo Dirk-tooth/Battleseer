@@ -2,7 +2,8 @@
   export let playerID, name, cp, faction;
 
   import TextInput from "./elements/textInput.svelte";
-  import SelectInput from "./elements/selectInput.svelte";
+  import FactionSelect from "./elements/factionSelect";
+  // import SelectInput from "./elements/selectInput.svelte";
 
   import { FactionList } from "./utilities/constantsList.js";
 </script>
@@ -50,8 +51,12 @@
       value={cp}
       border
       passedClasses="cp" />
-    <SelectInput
+    <!-- <SelectInput
       border
+      label="Faction"
+      options={FactionList}
+      passedClasses="faction" /> -->
+    <FactionSelect
       label="Faction"
       options={FactionList}
       passedClasses="faction" />

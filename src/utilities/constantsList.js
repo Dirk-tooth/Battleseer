@@ -1,4 +1,4 @@
-export const FactionList = [
+export const FactionList2 = [
   { cat: 'Mics.', name: 'Select Faction...' },
   { cat: 'Imperium', name: 'Ultramarines' },
   { cat: 'Aeldari', name: 'CraftWorlds' },
@@ -6,6 +6,44 @@ export const FactionList = [
   { cat: 'Orks', name: 'Orks' },
   { cat: 'Tyranids', name: 'Tyranids' },
   { cat: 'Chaos', name: 'Black Legion' },
+];
+
+export const FactionList = [
+  { cat: 'Aeldari', name: 'Asuryani' },
+  { cat: 'Aeldari', name: 'Drukhari' },
+  { cat: 'Aeldari', name: 'Harlequins' },
+  { cat: 'Aeldari', name: 'Ynnari' },
+  { cat: 'Aeldari', name: 'Aeldari' },
+  { cat: 'Chaos', name: 'Chaos Knights' },
+  { cat: 'Chaos', name: 'Daemons' },
+  { cat: 'Chaos', name: 'Death Guard' },
+  { cat: 'Chaos', name: 'Fallen' },
+  { cat: 'Chaos', name: 'Gellerpox Infected' },
+  { cat: 'Chaos', name: 'Heretic Astarties' },
+  { cat: 'Chaos', name: 'Servants of the Abyss' },
+  { cat: 'Chaos', name: 'Thousand Sons' },
+  { cat: 'Chaos', name: 'Titanicus Traitoris' },
+  { cat: 'Chaos', name: 'Chaos' },
+  { cat: 'Imperium', name: 'Adepta Sororitas' },
+  { cat: 'Imperium', name: 'Adeptus Astarties' },
+  { cat: 'Imperium', name: 'Adeptus Custodies' },
+  { cat: 'Imperium', name: 'Adeptus Mechanicus' },
+  { cat: 'Imperium', name: 'Adeptus Titanicus' },
+  { cat: 'Imperium', name: 'Astra Militarum' },
+  { cat: 'Imperium', name: 'Elucidian Starstriders' },
+  { cat: 'Imperium', name: 'Fallen' },
+  { cat: 'Imperium', name: 'Grey Knights' },
+  { cat: 'Imperium', name: 'Imperial Knights' },
+  { cat: 'Imperium', name: 'Inquisition' },
+  { cat: 'Imperium', name: 'Officio Assassinorum' },
+  { cat: 'Imperium', name: 'Sisters of Silence' },
+  { cat: 'Imperium', name: 'Imperium' },
+  { cat: 'Necrons', name: 'Necrons' },
+  { cat: 'Orks', name: 'Orks' },
+  { cat: "T'au Empire", name: "T'au Emplire" },
+  { cat: 'Tyranids', name: 'Brood Brothers' },
+  { cat: 'Tyranids', name: 'Genestealer Cults' },
+  { cat: 'Tyranids', name: 'Tyranids' },
 ];
 
 export const SecondariesList = [
