@@ -5,12 +5,25 @@
 
   import { SecondariesList } from "./utilities/constantsList.js";
 
-  export let scoreHeaders,
-    seedArray,
-    primaryScoreArray,
-    scoreCallback,
-    setSecondaryCatagories,
-    totalScore;
+  export let scoreHeaders, seedArray, playerID;
+
+  import { players, activePlayer } from "./stores.js";
+
+  function scoreCallback(objective, newScore) {
+    $players[playerID - 1].secondaries = $players[playerID - 1].secondaries.map(
+      (currentScore, idx) =>
+        objective === idx
+          ? newScore === currentScore
+            ? 0
+            : newScore
+          : currentScore
+    );
+  }
+
+  $: totalScore = $players[playerID - 1].secondaries.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
 </script>
 
 <style>
@@ -54,22 +67,23 @@
 </style>
 
 <div class="score-container">
-  {#each scoreHeaders as scoreHeader, idx}
+  {#each scoreHeaders as scoreHeader, index}
     <div class="score-block">
       <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
       <SecondarySelect
         label={scoreHeader}
-        objNumber={idx}
+        objNumber={index}
         options={SecondariesList}
         passedClasses="secondaries"
-        onChange={newSelection => setSecondaryCatagories(idx, newSelection)} />
+        {playerID}
+        {index} />
       <div class="button-group">
         {#each seedArray as score}
           <SecondaryButton
-            index={idx}
-            currentValue={primaryScoreArray[idx]}
+            {index}
+            currentValue={$players[playerID - 1].secondaries[index]}
             thisValue={score}
-            scoreCallback={() => scoreCallback(idx, score)} />
+            scoreCallback={() => scoreCallback(index, score)} />
         {/each}
       </div>
     </div>

@@ -1,5 +1,6 @@
 <script>
   export let playerID, placeholder, label, value;
+  export let min = 0;
   export let passedClasses = null;
   export let border = false;
 
@@ -35,6 +36,7 @@
   <input
     {placeholder}
     id={label}
-    type="text"
+    type="number"
+    {min}
     bind:value={$players[playerID - 1][value]} />
 </div>
