@@ -1,6 +1,7 @@
 <script>
-  export let label, border, onChange;
+  export let label, border, playerID, index;
   export let passedClasses = null;
+  import { players, activePlayer } from "../stores.js";
 </script>
 
 <style>
@@ -70,7 +71,11 @@
 <div class={`selectWrapper ${border ? 'border' : null} ${passedClasses}`}>
   <label for={`${label}-select`}>{label}</label>
 
-  <select name={label} id={`${label}-select`} class="select">
+  <select
+    name={label}
+    id={`${label}-select`}
+    class="select"
+    bind:value={$players[playerID - 1].secondariesCatagories[index]}>
     <option class="option-wrapper" value="Choose one...">Choose one...</option>
     <optgroup class="optgroup" label="Codex Specific Secondaries">
       <option class="option-wrapper" value="Codex Specific">

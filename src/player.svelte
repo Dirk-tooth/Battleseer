@@ -1,48 +1,23 @@
 <script>
   export let playerID = null;
+
+  import { players, activePlayer } from "./stores.js";
+
   import Meta from "./meta.svelte";
   import Primaries from "./primaries.svelte";
   import Secondaries from "./secondaries.svelte";
 
-  const playerData = {
-    name: "",
-    cp: 0,
-    faction: "",
-    primary: [0, 0, 0, 0],
-    secondaries: [0, 0, 0],
-    secondariesCatagories: ["", "", ""]
-  };
-
-  function scorePrimaries(turn, newScore) {
-    playerData.primary = playerData.primary.map((currentScore, idx) =>
-      turn === idx ? (newScore === currentScore ? 0 : newScore) : currentScore
-    );
-  }
-
-  function scoreSecondaries(objective, newScore) {
-    playerData.secondaries = playerData.secondaries.map((currentScore, idx) =>
-      objective === idx
-        ? newScore === currentScore
-          ? 0
-          : newScore
-        : currentScore
-    );
-  }
-
-  function setSecondaryCatagories(objectiveNumber, newSelection) {
-    playerData.secondariesCatagories[objectiveNumber] = newSelection;
-    console.log("playerData: ", playerData);
-  }
-
-  $: primariesScore = playerData.primary.reduce((total, score) => {
+  $: primariesScore = $players[playerID - 1].primary.reduce((total, score) => {
     let newScore = total + score;
     return newScore >= 45 ? 45 : newScore;
   });
 
-  $: secondariesScore = playerData.secondaries.reduce((total, score) => {
-    let newScore = total + score;
-    return newScore >= 45 ? 45 : newScore;
-  });
+  $: secondariesScore = $players[playerID - 1].secondaries.reduce(
+    (total, score) => {
+      let newScore = total + score;
+      return newScore >= 45 ? 45 : newScore;
+    }
+  );
 </script>
 
 <style>
@@ -77,29 +52,21 @@
 </style>
 
 <div class="player">
-  <Meta
-    {playerID}
-    name={playerData.name}
-    cp={playerData.cp}
-    faction={playerData.faction} />
+  <Meta {playerID} />
 
   <Primaries
     scoreHeaders={['Primary Turn 2', 'Primary Turn 3', 'Primary Turn 4', 'Primary Turn 5']}
     seedArray={[5, 10, 15]}
-    primaryScoreArray={playerData.primary}
-    scoreCallback={(turn, newScore) => scorePrimaries(turn, newScore)}
-    totalScore={primariesScore} />
+    {playerID} />
 
   <Secondaries
     scoreHeaders={['Secondary 1', 'Secondary 2', 'Secondary 3']}
     seedArray={Array.from(Array(15), (_, i) => i + 1)}
-    primaryScoreArray={playerData.secondaries}
-    scoreCallback={(turn, newScore) => scoreSecondaries(turn, newScore)}
-    setSecondaryCatagories={(objectiveNumber, newSelection) => setSecondaryCatagories(objectiveNumber, newSelection)}
-    totalScore={secondariesScore} />
+    {playerID} />
 
   <div class="total-container">
     <h1>Total Points</h1>
+    <!-- ToDo - calc total score from stste somehow ??? -->
     <h1>{primariesScore + secondariesScore} / 90</h1>
   </div>
 </div>

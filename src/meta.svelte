@@ -1,7 +1,10 @@
 <script>
-  export let playerID, name, cp, faction;
+  export let playerID;
+
+  import { players, activePlayer } from "./stores.js";
 
   import TextInput from "./elements/textInput.svelte";
+  import NumInput from "./elements/numInput.svelte";
   import FactionSelect from "./elements/factionSelect";
   // import SelectInput from "./elements/selectInput.svelte";
 
@@ -38,17 +41,17 @@
 <div class="meta">
   <TextInput
     label="Player name"
-    type="string"
-    value={name}
+    {playerID}
+    value="name"
     border
     placeholder={`Player ${playerID}`}
     passedClasses="name" />
   <div class="second-row">
-    <TextInput
+    <NumInput
       label="CP"
-      type="number"
+      {playerID}
+      value="cp"
       min={0}
-      value={cp}
       border
       passedClasses="cp" />
     <!-- <SelectInput
@@ -59,6 +62,9 @@
     <FactionSelect
       label="Faction"
       options={FactionList}
+      border
+      {playerID}
+      value="faction"
       passedClasses="faction" />
   </div>
 </div>
