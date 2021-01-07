@@ -1,11 +1,11 @@
 <script>
   export let playerID = null;
 
-  import { players, activePlayer } from "./stores.js";
+  import { players, activePlayer } from "../stores";
 
-  import Meta from "./meta.svelte";
-  import Primaries from "./primaries.svelte";
-  import Secondaries from "./secondaries.svelte";
+  import Meta from "./meta";
+  import Primaries from "./primaries";
+  import Secondaries from "./secondaries";
 
   $: primariesScore = $players[playerID - 1].primary.reduce((total, score) => {
     let newScore = total + score;

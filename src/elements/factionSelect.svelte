@@ -2,7 +2,7 @@
   export let label, border, onChange, value, playerID;
   export let passedClasses = null;
 
-  import { players, activePlayer } from "../stores.js";
+  import { players, activePlayer } from "../stores";
 </script>
 
 <style>

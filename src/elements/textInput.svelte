@@ -3,7 +3,7 @@
   export let passedClasses = null;
   export let border = false;
 
-  import { players, activePlayer } from "../stores.js";
+  import { players, activePlayer } from "../stores";
 </script>
 
 <style>
