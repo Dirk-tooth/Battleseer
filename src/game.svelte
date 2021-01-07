@@ -30,7 +30,7 @@
 </style>
 
 <div class="game">
-  <ScoreBoard />
+  <!-- <ScoreBoard /> -->
   <div class="players">
     <Player playerID={1} />
     <Player playerID={2} />
