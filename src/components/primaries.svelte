@@ -1,8 +1,8 @@
 <script>
-  import PriamryButton from "./elements/primaryButton.svelte";
+  import PriamryButton from "../elements/primaryButton.svelte";
   export let scoreHeaders, seedArray, totalScore, playerID;
 
-  import { players, activePlayer } from "./stores.js";
+  import { players, activePlayer } from "../stores";
 
   function scoreCallback(turn, newScore) {
     $players[playerID - 1].primary = $players[playerID - 1].primary.map(

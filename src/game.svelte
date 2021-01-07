@@ -1,6 +1,6 @@
 <script>
-  import Player from "./player.svelte";
-  import ScoreBoard from "./components/scoreBoard.svelte";
+  import Player from "./components/player";
+  import ScoreBoard from "./components/scoreBoard";
 </script>
 
 <style>

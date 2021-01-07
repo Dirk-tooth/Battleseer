@@ -1,7 +1,7 @@
 <script>
   export let label, border, playerID, index;
   export let passedClasses = null;
-  import { players, activePlayer } from "../stores.js";
+  import { players, activePlayer } from "../stores";
 </script>
 
 <style>

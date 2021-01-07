@@ -1,14 +1,14 @@
 <script>
   export let playerID;
 
-  import { players, activePlayer } from "./stores.js";
+  import { players, activePlayer } from "../stores";
 
-  import TextInput from "./elements/textInput.svelte";
-  import NumInput from "./elements/numInput.svelte";
-  import FactionSelect from "./elements/factionSelect";
-  // import SelectInput from "./elements/selectInput.svelte";
+  import TextInput from "../elements/textInput";
+  import NumInput from "../elements/numInput";
+  import FactionSelect from "../elements/factionSelect";
+  // import SelectInput from "./elements/selectInput";
 
-  import { FactionList } from "./utilities/constantsList.js";
+  import { FactionList } from "../utilities/constantsList";
 </script>
 
 <style>

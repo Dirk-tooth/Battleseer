@@ -1,13 +1,13 @@
 <script>
-  import SecondaryButton from "./elements/secondaryButton.svelte";
-  // import TextInput from "./elements/textInput.svelte";
-  import SecondarySelect from "./elements/secondarySelect.svelte";
+  import SecondaryButton from "../elements/secondaryButton";
+  // import TextInput from "./elements/textInput";
+  import SecondarySelect from "../elements/secondarySelect";
 
-  import { SecondariesList } from "./utilities/constantsList.js";
+  import { SecondariesList } from "../utilities/constantsList";
 
   export let scoreHeaders, seedArray, playerID;
 
-  import { players, activePlayer } from "./stores.js";
+  import { players, activePlayer } from "../stores";
 
   function scoreCallback(objective, newScore) {
     $players[playerID - 1].secondaries = $players[playerID - 1].secondaries.map(

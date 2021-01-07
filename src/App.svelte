@@ -1,7 +1,5 @@
 <script>
-  import Game from "./game.svelte";
-
-  const message = "Learn Svelte";
+  import Game from "./game";
 </script>
 
 <style>

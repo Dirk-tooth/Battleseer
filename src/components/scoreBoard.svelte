@@ -1,5 +1,5 @@
 <script>
-  import { players, activePlayer } from "../stores.js";
+  import { players, activePlayer } from "../stores";
 
   function subTotal(ordinal, i) {
     return $players[i][ordinal].reduce((total, score) => {
