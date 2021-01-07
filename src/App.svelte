@@ -46,9 +46,9 @@
       justify-content: center;
       height: auto;
     }
-    h1,
-    h5 {
-      margin: 1rem 2rem 0.5rem 2rem;
+    h3,
+    h6 {
+      margin: 0.5rem 2rem 0.25rem 2rem;
       text-align: center;
     }
     .footer {
