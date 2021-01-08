@@ -1,5 +1,5 @@
 <script>
-  export let label, border, onChange, value, playerID;
+  export let label, border, value, playerID;
   export let passedClasses = null;
 
   import { players, activePlayer } from "../stores";

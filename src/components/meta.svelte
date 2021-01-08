@@ -25,8 +25,6 @@
   .meta {
     width: 100%;
   }
-  .meta :global(.name) {
-  }
   .second-row {
     display: flex;
   }
