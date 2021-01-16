@@ -29,7 +29,7 @@
     align-content: space-between;
     align-items: center;
     /* background-color: red; */
-    margin: 3rem;
+    margin: 1rem 3rem;
     flex-basis: 50%;
   }
   .total-container {
