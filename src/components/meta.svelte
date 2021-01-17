@@ -25,8 +25,6 @@
   .meta {
     width: 100%;
   }
-  .meta :global(.name) {
-  }
   .second-row {
     display: flex;
   }
@@ -61,7 +59,6 @@
       passedClasses="faction" /> -->
     <FactionSelect
       label="Faction"
-      options={FactionList}
       border
       {playerID}
       value="faction"

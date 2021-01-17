@@ -58,10 +58,6 @@
   .select option {
     font-weight: normal;
   }
-  .option-wrapper {
-    /* display: flex;
-    justify-content: space-between; */
-  }
 </style>
 
 <div class={`selectWrapper ${border ? 'border' : null} ${passedClasses}`}>

@@ -70,10 +70,14 @@
   {#each scoreHeaders as scoreHeader, index}
     <div class="score-block">
       <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
+      <!-- <SecondarySelect
+        label={scoreHeader}
+        options={SecondariesList}
+        passedClasses="secondaries"
+        {playerID}
+        {index} /> -->
       <SecondarySelect
         label={scoreHeader}
-        objNumber={index}
-        options={SecondariesList}
         passedClasses="secondaries"
         {playerID}
         {index} />

@@ -1,6 +1,7 @@
 <script>
-  export let label, border, playerID, index;
+  export let label, playerID, index;
   export let passedClasses = null;
+  export let border = false;
   import { players, activePlayer } from "../stores";
 </script>
 

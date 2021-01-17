@@ -1,5 +1,5 @@
 <script>
-  export let playerID, placeholder, label, value;
+  export let playerID, label, value;
   export let min = 0;
   export let passedClasses = null;
   export let border = false;
@@ -34,7 +34,6 @@
 <div class={`textInput ${border ? 'border' : null} ${passedClasses}`}>
   <label for={label}>{label}</label>
   <input
-    {placeholder}
     id={label}
     type="number"
     {min}

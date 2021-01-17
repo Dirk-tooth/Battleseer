@@ -1,4 +1,5 @@
 <script>
+  import { players, activePlayer } from "./stores";
   import Player from "./components/player";
   import ScoreBoard from "./components/scoreBoard";
 </script>
@@ -30,9 +31,10 @@
 </style>
 
 <div class="game">
-  <!-- <ScoreBoard /> -->
+  <ScoreBoard />
   <div class="players">
-    <Player playerID={1} />
-    <Player playerID={2} />
+    {#each $players as player, index}
+      <Player playerID={player.playerID} />
+    {/each}
   </div>
 </div>

@@ -37,7 +37,7 @@
     justify-content: space-around;
     height: 100%;
     background-color: aquamarine;
-    padding: 12px 6px;
+    padding: 4px 0px;
   }
   @media only screen and (max-width: 795px) {
     .App-header {
@@ -56,6 +56,7 @@
       flex-direction: row;
       justify-content: space-around;
       height: auto;
+      padding: 12px 0px;
     }
   }
 </style>
