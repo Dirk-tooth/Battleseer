@@ -56,7 +56,7 @@
   .scoreBoardContent {
     text-align: left;
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     transform: skew(20deg);
     justify-content: space-between;
     align-items: center;
