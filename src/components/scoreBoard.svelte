@@ -1,15 +1,35 @@
 <script>
   import { players, activePlayer } from "../stores";
 
-  function subTotal(ordinal, i) {
-    return $players[i][ordinal].reduce((total, score) => {
-      let newScore = total + score;
-      return newScore >= 45 ? 45 : newScore;
-    });
-  }
+  // function subTotal(ordinal, i) {
+  //   console.log("subtotal:", ordinal, i);
 
-  $: primaryScore = idx => subTotal("primary", idx);
-  $: secondaryScore = idx => subTotal("secondaries", idx);
+  //   return $players[i][ordinal].reduce((total, score) => {
+  //     let newScore = total + score;
+  //     return newScore >= 45 ? 45 : newScore;
+  //   });
+  // }
+
+  // $: primaryScore = idx => subTotal("primary", idx);
+  // $: secondaryScore = idx => subTotal("secondaries", idx);
+
+  $: primaryPlayer0 = $players[0].primary.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
+  $: secondaryPlayer0 = $players[0].secondaries.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
+
+  $: primaryPlayer1 = $players[1].primary.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
+  $: secondaryPlayer1 = $players[1].secondaries.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
 </script>
 
 <style>
@@ -53,22 +73,12 @@
 
   @media only screen and (max-width: 795px) {
     .playerScore {
-      /* color: #334;
-      transform: skew(-20deg); */
       padding: 0rem 0rem;
       width: auto;
-      /* background-color: #7fffd4;
-      border-left: 2px solid white;
-      border-right: 2px solid white; */
       font-size: 0.75rem;
     }
     .scoreBoardContent {
-      /* text-align: left;
-      display: flex; */
       padding: 0.5rem 1rem;
-      /* transform: skew(20deg);
-      justify-content: space-between;
-      align-items: center; */
     }
     .totalScore {
       font-size: 3rem;
@@ -79,20 +89,30 @@
 </style>
 
 <div class="scoreBoard">
-  {#each $players as player, index}
-    <div class="playerScore">
-      <div class="scoreBoardContent">
-        <div>
-          <div class="playerName">
-            {player.name ? player.name : `Player ${player.playerID}`}
-          </div>
-          <div>Primary: {primaryScore(index)}</div>
-          <div>Secondary: {secondaryScore(index)}</div>
+  <!-- {#each $players as player, index} -->
+  <div class="playerScore">
+    <div class="scoreBoardContent">
+      <div>
+        <div class="playerName">
+          {$players[0].name ? $players[0].name : `Player ${$players[0].playerID}`}
         </div>
-        <div class="totalScore">
-          {primaryScore(index) + secondaryScore(index)}
-        </div>
+        <div>Primary: {primaryPlayer0}</div>
+        <div>Secondary: {secondaryPlayer0}</div>
       </div>
+      <div class="totalScore">{primaryPlayer0 + secondaryPlayer0}</div>
     </div>
-  {/each}
+  </div>
+  <!-- {/each} -->
+  <div class="playerScore">
+    <div class="scoreBoardContent">
+      <div>
+        <div class="playerName">
+          {$players[1].name ? $players[1].name : `Player ${$players[1].playerID}`}
+        </div>
+        <div>Primary: {primaryPlayer1}</div>
+        <div>Secondary: {secondaryPlayer1}</div>
+      </div>
+      <div class="totalScore">{primaryPlayer1 + secondaryPlayer1}</div>
+    </div>
+  </div>
 </div>
