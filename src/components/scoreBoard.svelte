@@ -42,6 +42,7 @@
     background-color: #355360;
     justify-content: space-around;
     border-top: 2px solid white;
+    z-index: 1000;
   }
   .playerScore {
     color: #334;
@@ -72,16 +73,19 @@
   }
 
   @media only screen and (max-width: 795px) {
+    .scoreBoard {
+      justify-content: center;
+    }
     .playerScore {
       padding: 0rem 0rem;
-      width: auto;
+      width: 50%;
       font-size: 0.75rem;
     }
     .scoreBoardContent {
       padding: 0.5rem 1rem;
     }
     .totalScore {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: bolder;
       padding-left: 1.5rem;
     }
@@ -98,6 +102,7 @@
         </div>
         <div>Primary: {primaryPlayer0}</div>
         <div>Secondary: {secondaryPlayer0}</div>
+        <div>CP: {$players[0].cp}</div>
       </div>
       <div class="totalScore">{primaryPlayer0 + secondaryPlayer0}</div>
     </div>
@@ -111,6 +116,7 @@
         </div>
         <div>Primary: {primaryPlayer1}</div>
         <div>Secondary: {secondaryPlayer1}</div>
+        <div>CP: {$players[1].cp}</div>
       </div>
       <div class="totalScore">{primaryPlayer1 + secondaryPlayer1}</div>
     </div>
