@@ -59,7 +59,6 @@
       passedClasses="faction" /> -->
     <FactionSelect
       label="Faction"
-      options={FactionList}
       border
       {playerID}
       value="faction"
