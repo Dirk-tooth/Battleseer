@@ -1,10 +1,20 @@
 <script>
-  import PriamryButton from "./elements/primaryButton.svelte";
-  export let scoreHeaders,
-    seedArray,
-    primaryScoreArray,
-    scoreCallback,
-    totalScore;
+  import PriamryButton from "../elements/primaryButton.svelte";
+  export let scoreHeaders, seedArray, totalScore, playerID;
+
+  import { players, activePlayer } from "../stores";
+
+  function scoreCallback(turn, newScore) {
+    $players[playerID - 1].primary = $players[playerID - 1].primary.map(
+      (currentScore, idx) =>
+        turn === idx ? (newScore === currentScore ? 0 : newScore) : currentScore
+    );
+  }
+
+  $: totalScore = $players[playerID - 1].primary.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
 </script>
 
 <style>
@@ -65,7 +75,7 @@
         {#each seedArray as score}
           <PriamryButton
             index={idx}
-            currentValue={primaryScoreArray[idx]}
+            currentValue={$players[playerID - 1].primary[idx]}
             thisValue={score}
             scoreCallback={() => scoreCallback(idx, score)} />
         {/each}

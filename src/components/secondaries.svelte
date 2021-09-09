@@ -1,16 +1,29 @@
 <script>
-  import SecondaryButton from "./elements/secondaryButton.svelte";
-  // import TextInput from "./elements/textInput.svelte";
-  import SecondarySelect from "./elements/secondarySelect.svelte";
+  import SecondaryButton from "../elements/secondaryButton";
+  // import TextInput from "./elements/textInput";
+  import SecondarySelect from "../elements/secondarySelect";
 
-  import { SecondariesList } from "./utilities/constantsList.js";
+  import { SecondariesList } from "../utilities/constantsList";
 
-  export let scoreHeaders,
-    seedArray,
-    primaryScoreArray,
-    scoreCallback,
-    setSecondaryCatagories,
-    totalScore;
+  export let scoreHeaders, seedArray, playerID;
+
+  import { players, activePlayer } from "../stores";
+
+  function scoreCallback(objective, newScore) {
+    $players[playerID - 1].secondaries = $players[playerID - 1].secondaries.map(
+      (currentScore, idx) =>
+        objective === idx
+          ? newScore === currentScore
+            ? 0
+            : newScore
+          : currentScore
+    );
+  }
+
+  $: totalScore = $players[playerID - 1].secondaries.reduce((total, score) => {
+    let newScore = total + score;
+    return newScore >= 45 ? 45 : newScore;
+  });
 </script>
 
 <style>
@@ -54,22 +67,27 @@
 </style>
 
 <div class="score-container">
-  {#each scoreHeaders as scoreHeader, idx}
+  {#each scoreHeaders as scoreHeader, index}
     <div class="score-block">
       <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
-      <SecondarySelect
+      <!-- <SecondarySelect
         label={scoreHeader}
-        objNumber={idx}
         options={SecondariesList}
         passedClasses="secondaries"
-        onChange={newSelection => setSecondaryCatagories(idx, newSelection)} />
+        {playerID}
+        {index} /> -->
+      <SecondarySelect
+        label={scoreHeader}
+        passedClasses="secondaries"
+        {playerID}
+        {index} />
       <div class="button-group">
         {#each seedArray as score}
           <SecondaryButton
-            index={idx}
-            currentValue={primaryScoreArray[idx]}
+            {index}
+            currentValue={$players[playerID - 1].secondaries[index]}
             thisValue={score}
-            scoreCallback={() => scoreCallback(idx, score)} />
+            scoreCallback={() => scoreCallback(index, score)} />
         {/each}
       </div>
     </div>

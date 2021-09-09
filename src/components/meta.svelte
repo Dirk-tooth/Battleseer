@@ -1,11 +1,14 @@
 <script>
-  export let playerID, name, cp, faction;
+  export let playerID;
 
-  import TextInput from "./elements/textInput.svelte";
-  import FactionSelect from "./elements/factionSelect";
-  // import SelectInput from "./elements/selectInput.svelte";
+  import { players, activePlayer } from "../stores";
 
-  import { FactionList } from "./utilities/constantsList.js";
+  import TextInput from "../elements/textInput";
+  import NumInput from "../elements/numInput";
+  import FactionSelect from "../elements/factionSelect";
+  // import SelectInput from "./elements/selectInput";
+
+  import { FactionList } from "../utilities/constantsList";
 </script>
 
 <style>
@@ -22,8 +25,6 @@
   .meta {
     width: 100%;
   }
-  .meta :global(.name) {
-  }
   .second-row {
     display: flex;
   }
@@ -38,17 +39,17 @@
 <div class="meta">
   <TextInput
     label="Player name"
-    type="string"
-    value={name}
+    {playerID}
+    value="name"
     border
     placeholder={`Player ${playerID}`}
     passedClasses="name" />
   <div class="second-row">
-    <TextInput
+    <NumInput
       label="CP"
-      type="number"
+      {playerID}
+      value="cp"
       min={0}
-      value={cp}
       border
       passedClasses="cp" />
     <!-- <SelectInput
@@ -58,7 +59,9 @@
       passedClasses="faction" /> -->
     <FactionSelect
       label="Faction"
-      options={FactionList}
+      border
+      {playerID}
+      value="faction"
       passedClasses="faction" />
   </div>
 </div>

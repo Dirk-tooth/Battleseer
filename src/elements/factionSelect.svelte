@@ -1,6 +1,8 @@
 <script>
-  export let label, border, onChange;
+  export let label, border, value, playerID;
   export let passedClasses = null;
+
+  import { players, activePlayer } from "../stores";
 </script>
 
 <style>
@@ -51,7 +53,7 @@
     /* border-color: #aaa; */
     /* box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7); */
     /* box-shadow: 0 0 0 3px -moz-mac-focusring; */
-    color: #333;
+    color: #334;
     outline: none;
   }
   .select option {
@@ -70,7 +72,11 @@
 <div class={`selectWrapper ${border ? 'border' : null} ${passedClasses}`}>
   <label for={`${label}-select`}>{label}</label>
 
-  <select name={label} id={`${label}-select`} class="select">
+  <select
+    name={label}
+    id={`${label}-select`}
+    class="select"
+    bind:value={$players[playerID - 1][value]}>
     <option class="option-wrapper" value="Choose one...">Choose one...</option>
 
     <optgroup class="optgroup" label="Aeldari">
