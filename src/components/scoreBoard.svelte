@@ -41,7 +41,7 @@
     display: flex;
     background-color: #355360;
     justify-content: space-around;
-    border-top: 2px solid white;
+    border-top: 2px solid #fcfcfc;
     z-index: 1000;
   }
   .playerScore {
@@ -50,8 +50,8 @@
     padding: 0rem 3rem;
     width: 20%;
     background-color: #7fffd4;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    border-left: 2px solid #fcfcfc;
+    border-right: 2px solid #fcfcfc;
   }
   .scoreBoardContent {
     text-align: left;
