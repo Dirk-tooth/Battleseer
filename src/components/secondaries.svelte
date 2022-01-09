@@ -1,22 +1,24 @@
 <script>
-  import SecondaryButton from "../elements/secondaryButton";
+  import TextInput from '../elements/textInput';
+  import SecondaryButton from '../elements/secondaryButton';
   // import TextInput from "./elements/textInput";
-  import SecondarySelect from "../elements/secondarySelect";
+  import SecondarySelect from '../elements/secondarySelect';
 
-  import { SecondariesList } from "../utilities/constantsList";
+  import { SecondariesList } from '../utilities/constantsList';
 
   export let scoreHeaders, seedArray, playerID;
 
-  import { players, activePlayer } from "../stores";
+  import { players, activePlayer } from '../stores';
 
   function scoreCallback(objective, newScore) {
-    $players[playerID - 1].secondaries = $players[playerID - 1].secondaries.map(
-      (currentScore, idx) =>
-        objective === idx
-          ? newScore === currentScore
-            ? 0
-            : newScore
-          : currentScore
+    $players[playerID - 1].secondaries = $players[
+      playerID - 1
+    ].secondaries.map((currentScore, idx) =>
+      objective === idx
+        ? newScore === currentScore
+          ? 0
+          : newScore
+        : currentScore
     );
   }
 
@@ -25,6 +27,47 @@
     return newScore >= 45 ? 45 : newScore;
   });
 </script>
+
+<div class="score-container">
+  {#each scoreHeaders as scoreHeader, index}
+    <div class="score-block">
+      <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
+      <!-- <SecondarySelect
+        label={scoreHeader}
+        options={SecondariesList}
+        passedClasses="secondaries"
+        {playerID}
+        {index} /> -->
+      <!-- <SecondarySelect
+        label={scoreHeader}
+        passedClasses="secondaries"
+        {playerID}
+        {index} /> -->
+      <TextInput
+        label={scoreHeader}
+        {playerID}
+        value={scoreHeader}
+        placeholder={scoreHeader}
+        passedClasses="name"
+      />
+      <div class="button-group">
+        {#each seedArray as score}
+          <SecondaryButton
+            {index}
+            currentValue={$players[playerID - 1].secondaries[index]}
+            thisValue={score}
+            scoreCallback={() => scoreCallback(index, score)}
+          />
+        {/each}
+      </div>
+    </div>
+  {/each}
+
+  <div class="total-container">
+    <h3>Total Secondary Points</h3>
+    <h1>{totalScore} / 45</h1>
+  </div>
+</div>
 
 <style>
   .score-container {
@@ -65,36 +108,3 @@
     }
   }
 </style>
-
-<div class="score-container">
-  {#each scoreHeaders as scoreHeader, index}
-    <div class="score-block">
-      <!-- <TextInput label={scoreHeader} type="string" value={''} /> -->
-      <!-- <SecondarySelect
-        label={scoreHeader}
-        options={SecondariesList}
-        passedClasses="secondaries"
-        {playerID}
-        {index} /> -->
-      <SecondarySelect
-        label={scoreHeader}
-        passedClasses="secondaries"
-        {playerID}
-        {index} />
-      <div class="button-group">
-        {#each seedArray as score}
-          <SecondaryButton
-            {index}
-            currentValue={$players[playerID - 1].secondaries[index]}
-            thisValue={score}
-            scoreCallback={() => scoreCallback(index, score)} />
-        {/each}
-      </div>
-    </div>
-  {/each}
-
-  <div class="total-container">
-    <h3>Total Secondary Points</h3>
-    <h1>{totalScore} / 45</h1>
-  </div>
-</div>
