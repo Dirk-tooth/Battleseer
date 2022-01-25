@@ -1,6 +1,37 @@
 <script>
-  import Game from "./game";
+  import Game from './game';
 </script>
+
+<div class="App">
+  <header class="App-header">
+    <!-- <h1>バトルフォーカス</h1> -->
+    <h3>Battleseer</h3>
+    <h6>A Warhammer 40,000 9th Ed. GT mission scoring tool</h6>
+  </header>
+  <div class="banner">
+    We are working to update this app for the new 2022 GT Mission Pack changes.
+    We plan to have this change completed by the end of Jan 2022!
+  </div>
+  <Game />
+  <div class="footer">
+    <p>
+      By
+      <a href="https://github.com/Dirk-tooth/">Dirk-tooth</a>
+    </p>
+    <p>
+      Github
+      <a href="https://github.com/Dirk-tooth/Battleseer">repo</a>
+    </p>
+    <p>
+      Twitter
+      <a href="https://twitter.com/T_rev">@T_rev</a>
+    </p>
+    <p>
+      icon by
+      <a target="_blank" href="https://icons8.com">Icons8</a>
+    </p>
+  </div>
+</div>
 
 <style>
   :global(body) {
@@ -15,6 +46,13 @@
   }
   p {
     font-size: 1rem;
+  }
+
+  .banner {
+    background-color: #e22e2c;
+    color: #eeeeee;
+    padding: 1rem;
+    font-weight: bold;
   }
   .App {
     text-align: center;
@@ -60,26 +98,3 @@
     }
   }
 </style>
-
-<div class="App">
-  <header class="App-header">
-    <!-- <h1>バトルフォーカス</h1> -->
-    <h3>Battleseer</h3>
-    <h6>A Warhammer 40,000 9th Ed. GT mission scoring tool</h6>
-  </header>
-  <Game />
-  <div class="footer">
-    <p>
-      By
-      <a href="https://github.com/Dirk-tooth/">Dirk-tooth</a>
-    </p>
-    <p>
-      Github
-      <a href="https://github.com/Dirk-tooth/Battleseer">repo</a>
-    </p>
-    <p>
-      Twitter
-      <a href="https://twitter.com/T_rev">@T_rev</a>
-    </p>
-  </div>
-</div>
