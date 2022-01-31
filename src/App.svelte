@@ -10,8 +10,7 @@
   </header>
   <div class="banner">
     We are working to update this app for the new 2022 GT Mission Pack changes.
-    We plan to have this change completed by the end of Jan 2022!
-  </div>
+    In addition, several more exciting new changes are coming to battleseer! So please be patient as we work to bring these new features. We hope to be done by Mid February 2022  </div>
   <Game />
   <div class="footer">
     <p>
